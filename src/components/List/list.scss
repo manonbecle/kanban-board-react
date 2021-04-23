@@ -1,0 +1,33 @@
+@use '../../styles/vars';
+
+.lists{
+  display: flex;
+
+  .list{
+    background-color: vars.$background-color;
+    box-shadow: 0px 0px 3px 0px vars.$shadow-color;
+    margin: 0 vars.$gutter;
+    padding: vars.$gutter;
+    width: 25%;
+    border-top: 4px solid; 
+    border-radius: 5px;
+    height: min-content;
+
+    .list__title{
+      font-size: vars.$font-size-title2;
+    }
+  }
+  .list--todo{
+    border-color: vars.$fisrt-color;
+  }
+  .list--in-progress{
+    border-color: vars.$third-color;
+  }
+  .list--to-test{
+    border-color: vars.$fourth-color;
+  }
+  .list--finished{
+    border-color: vars.$seventh-color;
+  }
+}
+

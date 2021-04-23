@@ -1,0 +1,9 @@
+@use '../../styles/vars';
+
+.header{
+
+  .header__title{
+    margin: 0 vars.$gutter (vars.$gutter * 2) vars.$gutter;
+    font-size: vars.$font-size-title1;
+  }
+}

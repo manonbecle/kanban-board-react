@@ -1,0 +1,12 @@
+@use '../../styles/vars';
+
+.addcard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: vars.$gutter;
+
+  .addcard__text{
+    margin-left: vars.$gutter / 2 ;
+  }
+}
