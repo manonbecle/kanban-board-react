@@ -1,5 +1,7 @@
+import data from 'src/data';
+
 const initialState = {
-  // ici le state initial
+  data,
 };
 
 function tasksReducer(state = initialState, action) {

@@ -3,7 +3,7 @@ import React from 'react';
 
 // == Import components
 import Header from 'src/components/Header';
-import List from 'src/components/List';
+import List from 'src/containers/List';
 
 // == Import css
 import './styles.scss';
