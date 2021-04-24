@@ -2,9 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// == Import components
+// == Import components / containers
 import Card from 'src/components/Card';
-import AddCard from 'src/components/AddCard';
+import AddCard from 'src/containers/AddCard';
 
 // == Import css
 import './list.scss';

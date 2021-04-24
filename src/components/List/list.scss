@@ -7,7 +7,7 @@
   padding: vars.$gutter;
   width: 25%;
   border-top: 4px solid; 
-  border-radius: 5px;
+  border-radius: vars.$border-radius-small;
   height: min-content;
 
   .list__title{

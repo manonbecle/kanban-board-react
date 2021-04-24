@@ -1,0 +1,21 @@
+@use '../../styles/vars';
+
+.modalAddTask {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.75);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .modal{
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: vars.$gutter * 2;
+    background: vars.$light-color;
+    border-radius: vars.$border-radius-small;
+  }
+}

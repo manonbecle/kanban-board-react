@@ -1,21 +1,30 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 
-// == Import components
+// == Import components / containers
 import Header from 'src/components/Header';
-// import List from 'src/containers/List';
 import Lists from 'src/containers/Lists';
+import ModalAddTask from 'src/components/ModalAddTask';
 
 // == Import css
 import './styles.scss';
 
 // == Composant
-const App = () => (
-  <div className="app">
-    <Header />
-    <Lists />
-  </div>
-);
+const App = ({ modalAddTaskIsOpen }) => {
+  console.log('ouvert ? :', modalAddTaskIsOpen);
+  return (
+    <div className="app">
+      <Header />
+      <Lists />
+      {modalAddTaskIsOpen && <ModalAddTask />}
+    </div>
+  );
+};
+
+App.propTypes = {
+  modalAddTaskIsOpen: PropTypes.bool.isRequired,
+};
 
 // == Export
 export default App;

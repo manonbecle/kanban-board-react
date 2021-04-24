@@ -2,12 +2,12 @@
 
 .card{
   background-color: vars.$light-color;
-  border-radius: 5px;
+  border-radius: vars.$border-radius-small;
   padding: vars.$gutter;
   margin-top: vars.$gutter;
 
   .card__priority{
-    border-radius: 5px;
+    border-radius: vars.$border-radius-small;
     color: vars.$light-color;
     padding: vars.$gutter / 3;
     font-size: vars.$font-size-small;
@@ -30,7 +30,7 @@
     text-align: right;
 
     .card__assignment__img{
-      border-radius: 100%;
+      border-radius: vars.$border-radius-max;
       width: 35px;
       height: 35px;
     }

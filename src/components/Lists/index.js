@@ -9,16 +9,13 @@ import List from 'src/components/List';
 import './lists.scss';
 
 // == Composant
-const Lists = ({ lists }) => {
-  console.log(lists);
-  return (
-    <div className="lists">
-      {lists.map((list) => (
-        <List key={list.id} {...list} />
-      ))}
-    </div>
-  )
-};
+const Lists = ({ lists }) => (
+  <div className="lists">
+    {lists.map((list) => (
+      <List key={list.id} {...list} />
+    ))}
+  </div>
+);
 
 Lists.propTypes = {
   lists: PropTypes.arrayOf(
