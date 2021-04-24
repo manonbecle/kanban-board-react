@@ -3,7 +3,8 @@ import React from 'react';
 
 // == Import components
 import Header from 'src/components/Header';
-import List from 'src/containers/List';
+// import List from 'src/containers/List';
+import Lists from 'src/containers/Lists';
 
 // == Import css
 import './styles.scss';
@@ -12,7 +13,7 @@ import './styles.scss';
 const App = () => (
   <div className="app">
     <Header />
-    <List />
+    <Lists />
   </div>
 );
 
