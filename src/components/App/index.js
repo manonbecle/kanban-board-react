@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // == Import components / containers
 import Header from 'src/components/Header';
 import Lists from 'src/containers/Lists';
-import ModalAddTask from 'src/components/ModalAddTask';
+import ModalAddTask from 'src/containers/ModalAddTask';
 
 // == Import css
 import './styles.scss';

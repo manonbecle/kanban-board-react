@@ -1,15 +1,22 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 import { XCircle } from 'react-feather';
 
 // == Import css
 import './modalAddTask.scss';
 
 // == Composant
-const ModalAddTask = () => (
+const ModalAddTask = ({ closeModalAddTask }) => (
   <div className="modalAddTask">
     <div className="modal">
-      <XCircle className="modal__close" />
+      <XCircle
+        className="modal__close"
+        onClick={() => {
+          // Doit modifier le state : passer modalAddTaskIsOpen à false
+          closeModalAddTask();
+        }}
+      />
       <h2 className="modal__title">Ajouter une tâche</h2>
       <form className="modal__form">
         <div className="row">
@@ -46,6 +53,10 @@ const ModalAddTask = () => (
     </div>
   </div>
 );
+
+ModalAddTask.propTypes = {
+  closeModalAddTask: PropTypes.func.isRequired,
+};
 
 // == Export
 export default ModalAddTask;

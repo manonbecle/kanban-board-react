@@ -1,5 +1,5 @@
 import data from 'src/data';
-import { OPEN_MODAL_ADD_TASK } from 'src/actions/kanbanAction';
+import { OPEN_MODAL_ADD_TASK, CLOSE_MODAL_ADD_TASK } from 'src/actions/kanbanAction';
 
 const initialState = {
   data,
@@ -12,6 +12,12 @@ function tasksReducer(state = initialState, action) {
       return {
         ...state,
         modalAddTaskIsOpen: true,
+      };
+
+    case CLOSE_MODAL_ADD_TASK:
+      return {
+        ...state,
+        modalAddTaskIsOpen: false,
       };
 
     default:
