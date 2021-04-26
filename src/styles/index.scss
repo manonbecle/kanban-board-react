@@ -2,7 +2,7 @@
 @use 'vars';
 
 body {
-  font-family: 'Rubik', sans-serif;
+  font-family: vars.$font-family;
   background-color: vars.$background-color;
   color: vars.$text-color;
 }

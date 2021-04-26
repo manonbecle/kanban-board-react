@@ -2,14 +2,14 @@
 
 .modalAddTask {
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.8);
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
 
   .modal{
-    width: 30%;
+    width: 35%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -17,5 +17,54 @@
     padding: vars.$gutter * 2;
     background: vars.$light-color;
     border-radius: vars.$border-radius-small;
+    border-top: 4px solid;
+    border-color: vars.$sixth-color;
+
+    .modal__close{
+      right: 10px;
+      top: 10px;
+      position: absolute;
+      width: 32px;
+      height: 32px;
+    }
+    .modal__title{
+      text-align: center;
+      font-size: vars.$font-size-title2;
+      font-weight: bold;
+    }
+    .modal__form{
+      display: flex;
+      flex-direction: column;
+
+      .row{
+        margin-top: vars.$gutter * 2;
+
+        .modal__label{
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .modal__field{
+            width: 70%;
+            padding: vars.$gutter / 1.5;
+            font-family: vars.$font-family;
+            font-size: vars.$font-size-normal;
+          }
+        }
+        .modal__submit{
+          background-color: vars.$sixth-color;
+          border: none;
+          padding: (vars.$gutter / 2) vars.$gutter;
+          color: vars.$light-color;
+          border-radius: vars.$border-radius-small;
+          font-weight: bold;
+          font-size: vars.$font-size-normal;
+        }
+      }
+      .row--right{
+        text-align: right;
+      }
+    }
   }
 }
