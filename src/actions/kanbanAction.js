@@ -3,6 +3,7 @@ export const OPEN_MODAL_ADD_TASK = 'OPEN_MODAL_ADD_TASK';
 export const CLOSE_MODAL_ADD_TASK = 'CLOSE_MODAL_ADD_TASK';
 export const HANDLE_DESCRIPTION_ADD_TASK = 'HANDLE_DESCRIPTION_ADD_TASK';
 export const ADD_TASK_IN_DOM = 'ADD_TASK_IN_DOM';
+export const CLEAR_DESCRIPTION_ADD_TASK = 'CLEAR_DESCRIPTION_ADD_TASK';
 
 // === action creators
 export const openModalAddTask = (listId) => ({
@@ -24,4 +25,8 @@ export const addTaskInDom = (newPriority, newAssigment, listIdAddTask) => ({
   newPriority,
   newAssigment,
   listIdAddTask,
+});
+
+export const clearDescriptionAddTask = () => ({
+  type: CLEAR_DESCRIPTION_ADD_TASK,
 });

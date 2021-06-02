@@ -2,7 +2,12 @@
 import { connect } from 'react-redux';
 
 // == Import actions
-import { closeModalAddTask, handleDescriptionAddTask, addTaskInDom } from 'src/actions/kanbanAction';
+import {
+  closeModalAddTask,
+  handleDescriptionAddTask,
+  addTaskInDom,
+  clearDescriptionAddTask,
+} from 'src/actions/kanbanAction';
 
 // == Import components
 import ModalAddTask from 'src/components/ModalAddTask';
@@ -24,6 +29,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   addTaskInDom: (newPriority, newAssigment, listIdAddTask) => {
     dispatch(addTaskInDom(newPriority, newAssigment, listIdAddTask));
+  },
+  clearDescriptionAddTask: () => {
+    dispatch(clearDescriptionAddTask());
   },
 });
 

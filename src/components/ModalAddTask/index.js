@@ -13,14 +13,19 @@ const ModalAddTask = ({
   descriptionAddTask,
   listIdAddTask,
   addTaskInDom,
+  clearDescriptionAddTask,
 }) => (
   <div className="modalAddTask">
     <div className="modal">
       <XCircle
         className="modal__close"
         onClick={() => {
-          // Doit modifier le state : passer modalAddTaskIsOpen à false
+          /* Fermer la modal d'ajout d'une tache : modifier le state en passant
+          modalAddTaskIsOpen à false */
           closeModalAddTask();
+
+          // Vider le state de la description (champ controlé)
+          clearDescriptionAddTask();
         }}
       />
       <h2 className="modal__title">Ajouter une tâche</h2>
@@ -29,15 +34,18 @@ const ModalAddTask = ({
         onSubmit={(event) => {
           // Enlever le rechargement de la page par défaut
           event.preventDefault();
-          // Envoyer les informations du formulaire
-          // console.log('envoyer le formulaire avec pdescription dans le state');
-          // console.log('envoyer le formulaire avec priorité', event.target.priority.value);
-          // console.log('envoyer le formulaire avec priorité', event.target.assigment.value);
-          // console.log('ajouter la tache dans la liste', listIdAddTask);
+
+          // Ajouter une nouvelle tache dans le DOM
           const newPriority = event.target.priority.value;
           const newAssigment = event.target.assigment.value;
           addTaskInDom(newPriority, newAssigment, listIdAddTask);
+
+          /* Fermer la modal d'ajout d'une tache : modifier le state en passant
+          modalAddTaskIsOpen à false */
           closeModalAddTask();
+
+          // Vider le state de la description (champ controlé)
+          clearDescriptionAddTask();
         }}
       >
         <div className="row">
@@ -91,6 +99,7 @@ ModalAddTask.propTypes = {
   handleDescriptionAddTask: PropTypes.func.isRequired,
   listIdAddTask: PropTypes.number.isRequired,
   addTaskInDom: PropTypes.func.isRequired,
+  clearDescriptionAddTask: PropTypes.func.isRequired,
 };
 
 // == Export
