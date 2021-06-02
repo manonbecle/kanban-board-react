@@ -13,16 +13,16 @@ const initialState = {
       slug: 'to-do',
       cards: [
         {
-          id: 3,
-          title: 'Installer Redux pour gérer les changements du state',
-          priority: 'basse',
-          assigment: 'Estelle L',
-        },
-        {
-          id: 4,
+          id: 1,
           title: 'Gestion du Drag and drop et donc de la position de chaque \'Card\' dans une liste',
           priority: 'normale',
           assigment: 'Elsa M',
+        },
+        {
+          id: 2,
+          title: 'Responsive design',
+          priority: 'haute',
+          assigment: 'Vincent F',
         },
       ],
     },
@@ -32,10 +32,10 @@ const initialState = {
       slug: 'in-progress',
       cards: [
         {
-          id: 1,
-          title: 'Creer un fichier de data pour dynamiser l\'affichage',
-          priority: 'haute',
-          assigment: 'Julien B',
+          id: 3,
+          title: 'Installer Redux pour gérer les changements du state',
+          priority: 'basse',
+          assigment: 'Estelle L',
         },
       ],
     },
@@ -45,12 +45,11 @@ const initialState = {
       slug: 'to-test',
       cards: [
         {
-          id: 2,
-          title: 'Responsive design',
+          id: 4,
+          title: 'Modifier les data : plus un fichier de data mais uniquement les données du state',
           priority: 'haute',
-          assigment: 'Vincent F',
+          assigment: 'Julien B',
         },
-
       ],
     },
     {
@@ -90,9 +89,20 @@ function tasksReducer(state = initialState, action) {
         ...state,
         descriptionAddTask: action.value,
       };
+
     case ADD_TASK_IN_DOM: {
+      // Calculer le prochain id de ma nouvelle carte
+      let newId = 0;
+      state.lists[action.listIdAddTask].cards.forEach((element) => {
+        if (element.id > newId) {
+          newId = element.id;
+        }
+      });
+      console.log('ffff :', state.lists[action.listIdAddTask].cards);
+      console.log('newId :', newId);
+
       const newCard = {
-        id: action.listIdAddTask,
+        id: newId,
         title: state.descriptionAddTask,
         priority: action.newPriority,
         assigment: action.newAssigment,
