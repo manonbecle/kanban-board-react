@@ -7,7 +7,7 @@ import { XCircle } from 'react-feather';
 import './modalAddTask.scss';
 
 // == Composant
-const ModalAddTask = ({ closeModalAddTask }) => (
+const ModalAddTask = ({ closeModalAddTask, handleDescriptionAddTask, descriptionAddTask }) => (
   <div className="modalAddTask">
     <div className="modal">
       <XCircle
@@ -18,11 +18,32 @@ const ModalAddTask = ({ closeModalAddTask }) => (
         }}
       />
       <h2 className="modal__title">Ajouter une tâche</h2>
-      <form className="modal__form">
+      <form
+        className="modal__form"
+        onSubmit={(event) => {
+          // Enlever le rechargement de la page par défaut
+          event.preventDefault();
+          // Envoyer les informations du formulaire
+          console.log('envoyer le formulaire');
+          // Fermer la modal
+          closeModalAddTask();
+        }}
+      >
         <div className="row">
           <label className="modal__label" htmlFor="description">
             Description
-            <textarea className="modal__field" type="text" name="description" id="description" />
+            <textarea
+              className="modal__field"
+              type="text"
+              name="description"
+              id="description"
+              value={descriptionAddTask}
+              onChange={(event) => {
+                // Mise en place d'un champ controlé
+                // console.log('onchange', event.target.value);
+                handleDescriptionAddTask(event.target.value);
+              }}
+            />
           </label>
         </div>
         <div className="row">
@@ -56,6 +77,8 @@ const ModalAddTask = ({ closeModalAddTask }) => (
 
 ModalAddTask.propTypes = {
   closeModalAddTask: PropTypes.func.isRequired,
+  descriptionAddTask: PropTypes.string.isRequired,
+  handleDescriptionAddTask: PropTypes.func.isRequired,
 };
 
 // == Export

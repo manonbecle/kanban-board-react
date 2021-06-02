@@ -11,16 +11,13 @@ import ModalAddTask from 'src/containers/ModalAddTask';
 import './styles.scss';
 
 // == Composant
-const App = ({ modalAddTaskIsOpen }) => {
-  console.log('ouvert ? :', modalAddTaskIsOpen);
-  return (
-    <div className="app">
-      <Header />
-      <Lists />
-      {modalAddTaskIsOpen && <ModalAddTask />}
-    </div>
-  );
-};
+const App = ({ modalAddTaskIsOpen }) => (
+  <div className="app">
+    <Header />
+    <Lists />
+    {modalAddTaskIsOpen && <ModalAddTask />}
+  </div>
+);
 
 App.propTypes = {
   modalAddTaskIsOpen: PropTypes.bool.isRequired,
