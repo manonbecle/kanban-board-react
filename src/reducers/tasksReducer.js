@@ -93,13 +93,16 @@ function tasksReducer(state = initialState, action) {
     case ADD_TASK_IN_DOM: {
       // Calculer le prochain id de ma nouvelle carte
       let newId = 0;
-      state.lists[action.listIdAddTask].cards.forEach((element) => {
-        if (element.id > newId) {
-          newId = element.id;
-        }
+      state.lists.forEach((list) => {
+        // pour chaque liste, je veux parcourir les cartes
+        list.cards.forEach((card) => {
+          // pour chaque carte, si l'id de la carte est plus grand ou égal à newId en cours
+          // alors newId prend une nouvelle valeur : id de la carte "lu" + 1
+          if (card.id >= newId) {
+            newId = card.id + 1;
+          }
+        });
       });
-      console.log('ffff :', state.lists[action.listIdAddTask].cards);
-      console.log('newId :', newId);
 
       const newCard = {
         id: newId,
