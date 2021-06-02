@@ -9,13 +9,18 @@ import AddCard from 'src/containers/AddCard';
 // == Import css
 import './list.scss';
 
-const List = ({ title, slug, cards }) => (
+const List = ({
+  title,
+  slug,
+  cards,
+  id,
+}) => (
   <div className={`list list--${slug}`}>
     <h2 className="list__title">{title}</h2>
     {cards.map((task) => (
       <Card key={task.id} {...task} />
     ))}
-    <AddCard />
+    <AddCard listId={id} />
   </div>
 );
 
@@ -27,6 +32,7 @@ List.propTypes = {
       id: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 // == Export

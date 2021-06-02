@@ -10,12 +10,12 @@ import { PlusCircle } from 'react-feather';
 import './addcard.scss';
 
 // == Composant
-const AddCard = ({ openModalAddTask }) => (
+const AddCard = ({ openModalAddTask, listId }) => (
   <div
     className="addcard"
     onClick={() => {
       // déclenche l'action d'ouvrir la modal "Ajouter une tâche"
-      openModalAddTask();
+      openModalAddTask(listId);
     }}
   >
     <PlusCircle />
@@ -25,6 +25,7 @@ const AddCard = ({ openModalAddTask }) => (
 
 AddCard.propTypes = {
   openModalAddTask: PropTypes.func.isRequired,
+  listId: PropTypes.number.isRequired, // provient du parent, soit le composant <List />
 };
 
 // == Export

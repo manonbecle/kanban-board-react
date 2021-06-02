@@ -7,7 +7,13 @@ import { XCircle } from 'react-feather';
 import './modalAddTask.scss';
 
 // == Composant
-const ModalAddTask = ({ closeModalAddTask, handleDescriptionAddTask, descriptionAddTask }) => (
+const ModalAddTask = ({
+  closeModalAddTask,
+  handleDescriptionAddTask,
+  descriptionAddTask,
+  listIdAddTask,
+  addTaskInDom,
+}) => (
   <div className="modalAddTask">
     <div className="modal">
       <XCircle
@@ -24,8 +30,13 @@ const ModalAddTask = ({ closeModalAddTask, handleDescriptionAddTask, description
           // Enlever le rechargement de la page par défaut
           event.preventDefault();
           // Envoyer les informations du formulaire
-          console.log('envoyer le formulaire');
-          // Fermer la modal
+          // console.log('envoyer le formulaire avec pdescription dans le state');
+          // console.log('envoyer le formulaire avec priorité', event.target.priority.value);
+          // console.log('envoyer le formulaire avec priorité', event.target.assigment.value);
+          // console.log('ajouter la tache dans la liste', listIdAddTask);
+          const newPriority = event.target.priority.value;
+          const newAssigment = event.target.assigment.value;
+          addTaskInDom(newPriority, newAssigment, listIdAddTask);
           closeModalAddTask();
         }}
       >
@@ -40,7 +51,6 @@ const ModalAddTask = ({ closeModalAddTask, handleDescriptionAddTask, description
               value={descriptionAddTask}
               onChange={(event) => {
                 // Mise en place d'un champ controlé
-                // console.log('onchange', event.target.value);
                 handleDescriptionAddTask(event.target.value);
               }}
             />
@@ -50,9 +60,9 @@ const ModalAddTask = ({ closeModalAddTask, handleDescriptionAddTask, description
           <label className="modal__label" htmlFor="priority">
             Priorité
             <select className="modal__field" name="priority" id="priority">
-              <option value="">Basse</option>
-              <option value="dog">Moyenne</option>
-              <option value="cat">Haute</option>
+              <option value="basse">Basse</option>
+              <option value="normale">Normale</option>
+              <option value="haute">Haute</option>
             </select>
           </label>
         </div>
@@ -60,10 +70,10 @@ const ModalAddTask = ({ closeModalAddTask, handleDescriptionAddTask, description
           <label className="modal__label" htmlFor="assigment">
             Assigné à
             <select className="modal__field" name="assigment" id="assigment">
-              <option value="">Elsa M</option>
-              <option value="dog">Estelle L</option>
-              <option value="cat">Julien B</option>
-              <option value="cat">Vincent F</option>
+              <option value="Elsa M">Elsa M</option>
+              <option value="Estelle L">Estelle L</option>
+              <option value="Julien B">Julien B</option>
+              <option value="Vincent F">Vincent F</option>
             </select>
           </label>
         </div>
@@ -79,6 +89,8 @@ ModalAddTask.propTypes = {
   closeModalAddTask: PropTypes.func.isRequired,
   descriptionAddTask: PropTypes.string.isRequired,
   handleDescriptionAddTask: PropTypes.func.isRequired,
+  listIdAddTask: PropTypes.number.isRequired,
+  addTaskInDom: PropTypes.func.isRequired,
 };
 
 // == Export

@@ -6,7 +6,7 @@ import Lists from 'src/components/Lists';
 
 // == mapStateToProps
 const mapStateToProps = (state) => ({
-  lists: state.data.lists,
+  lists: state.lists,
 });
 
 // == mapDispatchToProps

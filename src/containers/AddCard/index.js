@@ -15,9 +15,9 @@ const mapStateToProps = (state) => ({
 // == mapDispatchToProps
 const mapDispatchToProps = (dispatch) => ({
   // fonction qui doit ouvrir la modal "ajouter une tâche"
-  openModalAddTask: () => {
+  openModalAddTask: (listId) => {
     // dispatch de l'action présente dans l'annuaire des actions
-    dispatch(openModalAddTask());
+    dispatch(openModalAddTask(listId));
   },
 });
 
