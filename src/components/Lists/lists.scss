@@ -1,3 +1,12 @@
+@use '../../styles/vars';
+
 .lists{
   display: flex;
+  flex-wrap: wrap;
+}
+
+@media (min-width: vars.$breakpoint-tablet) {
+  .lists{
+    flex-wrap: nowrap;
+  }
 }
