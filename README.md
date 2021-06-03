@@ -2,7 +2,7 @@
 
 Un Kanban est un outil de gestion de projet qui repose sur une organisation des projets en planches listant des cartes, chacune représentant des tâches.
 
-![Rendu du projet Kanban]((https://github.com/manonbecle/kanban-board-react/blob/master/rendu-kanban.jpg?raw=true))
+![Rendu du projet Kanban](https://github.com/manonbecle/kanban-board-react/blob/master/rendu-kanban.jpg?raw=true)
 
 ## Technologies
 
